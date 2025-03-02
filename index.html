@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <main class="main_wrapper">
+      <section>
+        <form id="form_add" class="form_wrapper">
+          <div class="input_wrapper">
+            <div class="input_content">
+              <label for="judul">Judul</label>
+              <input
+                id="judul"
+                type="text"
+                placeholder="Masukan Judul"
+                required
+                minlength="3"
+                aria-describedby="judul_error"
+              />
+            </div>
+            <p id="judul_error" class="error_message"></p>
+          </div>
+          <div class="input_wrapper">
+            <div class="input_content">
+              <label for="body">Body</label>
+              <textarea
+                id="body"
+                placeholder="Masukan Body"
+                rows="3"
+                minlength="3"
+                required
+                aria-describedby="body_error"
+              ></textarea>
+            </div>
+            <p id="body_error" class="error_message"></p>
+          </div>
+          <button type="submit">Submit aku dong</button>
+        </form>
+      </section>
+      <card-list></card-list>
+    </main>
+    <script type="module" src="src/index.js"></script>
+  </body>
+</html>
