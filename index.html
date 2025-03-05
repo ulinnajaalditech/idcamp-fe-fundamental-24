@@ -37,10 +37,22 @@
             </div>
             <p id="body_error" class="error_message"></p>
           </div>
-          <button type="submit">Submit aku dong</button>
+          <button type="submit">
+            Submit aku dong
+            <span id="loader-submit" class="hidden">
+              <span class="loader_button"></span>
+            </span>
+          </button>
         </form>
       </section>
-      <card-list></card-list>
+      <span id="loader-get" class="loaderList hidden"></span>
+      <div id="list-note">
+        <card-list></card-list>
+        <div>
+          <h2>Archive Notes</h2>
+          <card-list-archive></card-list-archive>
+        </div>
+      </div>
     </main>
     <script type="module" src="src/index.js"></script>
   </body>

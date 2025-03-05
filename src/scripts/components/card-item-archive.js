@@ -1,6 +1,7 @@
 import { BASE_URL } from '../main.js'
 import Toastify from 'toastify-js'
-class CardItem extends HTMLElement {
+
+class CardItemArchive extends HTMLElement {
   constructor() {
     super()
 
@@ -43,15 +44,15 @@ class CardItem extends HTMLElement {
             year: 'numeric',
           })}</p>
           <div>
-          
-          <button id="action-archive">
+
+           <button id="action-unarchive">
             <img 
-                src='archive.svg'
-                alt='archive-icon'
+                src='unarchive.svg'
+                alt='unarchive-icon'
             />
           </button>
-          <button id="action-delete"
-          >
+          
+          <button id="action-delete">
             <img 
                 src='trash.svg'
                 alt='trash-icon'
@@ -64,8 +65,6 @@ class CardItem extends HTMLElement {
 
     this.querySelector('#action-delete').addEventListener('click', async () => {
       try {
-        this.querySelector('#action-delete').disabled = true
-
         const response = await fetch(`${BASE_URL}/notes/${this._blog.id}`, {
           method: 'DELETE',
         })
@@ -78,19 +77,16 @@ class CardItem extends HTMLElement {
       } catch (error) {
         console.log(error)
       } finally {
-        this.querySelector('#action-delete').disabled = false
         window.location.reload()
       }
     })
 
-    this.querySelector('#action-archive').addEventListener(
+    this.querySelector('#action-unarchive').addEventListener(
       'click',
       async () => {
         try {
-          this.querySelector('#action-archive').disabled = true
-
           const response = await fetch(
-            `${BASE_URL}/notes/${this._blog.id}/archive`,
+            `${BASE_URL}/notes/${this._blog.id}/unarchive`,
             {
               method: 'POST',
             }
@@ -104,7 +100,6 @@ class CardItem extends HTMLElement {
         } catch (error) {
           console.log(error)
         } finally {
-          this.querySelector('#action-archive').disabled = false
           window.location.reload()
         }
       }
@@ -112,4 +107,4 @@ class CardItem extends HTMLElement {
   }
 }
 
-customElements.define('card-item', CardItem)
+customElements.define('card-item-archive', CardItemArchive)
